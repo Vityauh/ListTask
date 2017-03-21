@@ -7,13 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.example.demon.myapplication.ListViewsActivities.NewsFromWorldActivity;
 import com.example.demon.myapplication.ListViewsActivities.SportNewsActivity;
 import com.example.demon.myapplication.ListViewsActivities.WeatherActivity;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
