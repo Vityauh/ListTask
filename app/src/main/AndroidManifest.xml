@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListViewsActivities.WeatherActivity" />
+        <activity android:name=".ListViewsActivities.SportNewsActivity" />
+        <activity android:name=".ListViewsActivities.NewsFromWorldActivity"></activity>
     </application>
 
 </manifest>
