@@ -1,5 +1,6 @@
 package com.example.demon.myapplication.ListViewsActivities;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.demon.myapplication.R;
 import org.apache.commons.io.IOUtils;
@@ -38,6 +40,7 @@ public class WeatherActivity extends AppCompatActivity {
     Button checkWeatherButton;
 
     private String urlSite;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,13 @@ public class WeatherActivity extends AppCompatActivity {
     private class GetDataTask extends AsyncTask<Void, Void, String> {
 
         @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(WeatherActivity.this);
+            progressDialog.setMessage("Sciagam weather api");
+            progressDialog.show();
+        }
+
+        @Override
         protected String doInBackground(Void... voids) {
             try {
                 return getData();
@@ -66,6 +76,7 @@ public class WeatherActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String data) {
             try {
+                progressDialog.hide();
                 WeatherActivity.this.parseAndShowJsonData(data);
             } catch (JSONException e) {
                 e.printStackTrace();
